@@ -171,10 +171,110 @@
 
 // console.log(getnamesss);
 
-var age = 10;
+// var age = 10;
 
-(() => {
-  console.log(age);
-  var age = 20;
-  console.log(age);
-})();
+// (() => {
+//   console.log(age);
+//   var age = 20;
+//   console.log(age);
+// })();
+
+// var addBinary = function (a, b) {
+//   return (BigInt(`0b${a}`) + BigInt(`0b${b}`)).toString(2);
+// };
+// var a = "11",
+//   b = "1";
+// console.log(addBinary(a, b));
+
+// var merge = function (nums1, m, nums2, n) {
+//   let myarray = [...nums1, m, ...nums2, n];
+//   console.log(myarray.sort());
+// };
+
+// var nums1 = [1, 2, 3, 0, 0, 0],
+//   m = 3,
+//   nums2 = [2, 5, 6],
+//   n = 3;
+// merge(nums1, m, nums2, n);
+
+// var hasCycle = (head) => {
+//   if (head == null) return false;
+//   var walker = head;
+//   var runner = head;
+//   while (runner.next != null && runner.next.next != null) {
+//     walker = walker.next;
+//     runner = runner.next.next;
+//     if (walker == runner) return true;
+//   }
+//   return false;
+// };
+// var head = [1, 2];
+// console.log(hasCycle(head));
+
+// function singleNumber(nums) {
+//   console.log(3 ^ 2);
+//   // return nums.reduce((prev, curr) => prev ^ curr);
+// }
+
+// var nums = [1, 2, 1, 2, 4];
+// console.log(singleNumber(nums));
+
+// var sortedArrayToBST = function (nums) {
+//   if (nums == null || !nums.length) {
+//     return null;
+//   }
+
+// };
+// let nums = [-10, -3, 0, 5, 9];
+// let n = nums.length;
+// let arr = sortedArrayToBST(nums, 0, n - 1);
+// console.log(arr);
+// sortedArrayToBST(nums);
+
+//GET A HAPPY NUMBER
+
+// var isHappy = function (n) {
+//   let seen = new Set();
+//   while (n !== 1) {
+//     let total = 0;
+//     while (0 < n) {
+//       total += (n % 10) * (n % 10);
+//       n = Math.floor(n / 10);
+//     }
+//     if (seen.has(total)) {
+//       return false;
+//     } else {
+//       seen.add(total);
+//       n = total;
+//     }
+//   }
+//   return true;
+// };
+
+// var Input = 19;
+// console.log(isHappy(Input));
+
+// var singleNumber = function (nums) {
+//   const result = {};
+//   for (let i = 0; i < nums.length; i++) {
+//     let char = nums[i];
+//     result[char] = result[char] ? (result[char] += 1) : (result[char] = 1);
+//   }
+
+//   console.log(Object.keys(result));
+//   console.log(Object.values(result));
+// };
+// let nums = [2, 2, 1];
+// console.log(singleNumber(nums));
+
+// var singleNumber = function (nums) {
+//   nums.sort();
+//   for (var i = 0; i < nums.length; i += 2) {
+//     if (nums[i] != nums[i + 1]) {
+//       return nums[i];
+//     }
+//   }
+// };
+
+// var nums = [1, 2, 2];
+// console.log(singleNumber(nums));
