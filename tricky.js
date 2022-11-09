@@ -278,3 +278,80 @@
 
 // var nums = [1, 2, 2];
 // console.log(singleNumber(nums));
+
+// var majorityElement = function (nums) {
+//   let count = {};
+//   for (let i = 0; i < nums.length; i++) {
+//     let ch = nums[i];
+//     count[ch] = count[ch] ? count[ch] + 1 : 1;
+//   }
+
+//   console.log(Object.values(count));
+//   console.log(Object.keys(count));
+
+//   // const LargestNum = values.reduce((prev, curr) => {
+//   //   return Math.max(prev, curr);
+//   // });
+//   // console.log(LargestNum);
+// };
+// c
+// majorityElement(nums);
+
+// const ArrayList = [3, 2, 3, 4, 4, 4];
+// const LargestNum = ArrayList.reduce((prev, curr) => {
+//   return Math.max(prev, curr);
+// });
+// const MinNum = ArrayList.reduce((prev, curr) => {
+//   return Math.min(prev, curr);
+// });
+// console.log(LargestNum);
+// console.log(MinNum);
+
+// const getCounts = (nums) => {
+//   let counts = {};
+//   for (let i = 0; i < nums.length; i++) {
+//     let val = counts[nums[i]] ? counts[nums[i]] : 0;
+//     counts[nums[i]] = val + 1;
+//   }
+//   return counts;
+// };
+
+// var majorityElement = function (nums) {
+//   const n = nums.length;
+//   const counts = getCounts(nums);
+//   const isMajority = (val) => val > n / 2;
+
+//   for (const [key, val] of Object.entries(counts)) {
+//     if (isMajority(val)) {
+//       return key;
+//     }
+//   }
+//   return 0;
+// };
+// var ArrayList = [3, 2, 3];
+// console.log(majorityElement(ArrayList));
+
+// var reverseString = function (s) {
+//   console.log(s.reverse());
+// };
+
+// var s = ["h", "e", "l", "l", "o"];
+// reverseString(s);
+
+// var fizzBuzz = function (n) {
+//   let array = [];
+//   for (let i = 1; i <= n; i++) {
+//     if (i % 15 == 0) {
+//       array.push("FizzBuzz");
+//     } else if (i % 5 == 0) {
+//       array.push("Buzz");
+//     } else if (i % 3 == 0) {
+//       array.push("Fizz");
+//     } else {
+//       array.push(i.toString());
+//     }
+//   }
+//   console.log(array);
+// };
+
+// fizzBuzz(15);
