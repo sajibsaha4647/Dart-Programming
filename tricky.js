@@ -355,3 +355,175 @@
 // };
 
 // fizzBuzz(15);
+
+// var mergeTwoLists = function (list1, list2) {
+
+// };
+
+// var list1 = [1, 2, 4],
+//   list2 = [1, 3, 4];
+
+// mergeTwoLists(list1, list2);
+
+// var mergeTwoLists = function (list1, list2) {
+//   let result = [...list1, ...list2];
+//   console.log([...list1, ...list2].sort());
+// };
+
+// var list1 = [1, 2, 4],
+//   list2 = [1, 3, 4];
+
+// mergeTwoLists(list1, list2);
+
+function ListNode(val, next) {
+  this.val = val === undefined ? 0 : val;
+  this.next = next === undefined ? null : next;
+}
+
+// var mergeTwoLists = function (list1, list2) {
+//   let dummyhead = new ListNode(0);
+//   let prev = dummyhead;
+
+//   console.log(list1.val);
+
+//   // while(list1 && list2){
+//   //   if(list1.val <=list2.val){
+//   //       list1.next = list1
+
+//   //   }else{
+
+//   //   }
+//   // }
+// };
+
+// var list1 = [1, 2, 4],
+//   list2 = [1, 3, 4];
+
+// mergeTwoLists(list1, list2);
+
+// class List {
+//   constructor() {
+//     this.head = {
+//       value: "",
+//       next: null,
+//     };
+//     this.tail = this.head;
+//   }
+// }
+
+// let list = new List();
+// console.warn(list);
+
+// var isValid = function (s) {
+//   s = s.split("");
+//   var stack = [];
+//   for (var z of s) {
+//     if (z === "(" || z === "{" || z === "[") {
+//       stack.push(z);
+//     } else {
+//       var top = stack[stack.length - 1];
+//       if (
+//         (z === ")" && top === "(") ||
+//         (z === "]" && top === "[") ||
+//         (z === "}" && top === "{")
+//       ) {
+//         stack.pop();
+//       } else {
+//         return false;
+//       }
+//     }
+//   }
+
+//   return stack.length === 0;
+// };
+// let s = "(][](){}[{({";
+// isValid(s);
+
+// var mergeSimilarItems = function (items1, items2) {
+//   const integermap = new Map();
+//   for (let i = 0; i < items1.length; i++) {
+//     integermap.set(items1[i][0], items1[i][1]);
+//   }
+
+//   for (let j = 0; j < items2.length; j++) {
+//     if (integermap.has(items2[j][0])) {
+//       integermap.set(items2[j][0], integermap.get(items2[j][0]) + items2[j][1]);
+//     } else {
+//       integermap.set(items2[j][0], items2[j][1]);
+//     }
+//   }
+
+//   return Array.from(integermap.entries()).sort((a, b) => a[0] - b[0]);
+// };
+
+// var items1 = [
+//     [1, 1],
+//     [4, 5],
+//     [3, 8],
+//   ],
+//   items2 = [
+//     [3, 1],
+//     [1, 5],
+//   ];
+
+// mergeSimilarItems(items1, items2);
+
+// var isPowerOfTwo = function (n) {
+//   // if (n < 1) {
+//   //   console.log(false);
+//   //   return false;
+//   // } else if ((n & (n - 1)) == 0) {
+//   //   console.log(true);
+//   //   return true;
+//   // } else {
+//   //   console.log(false);
+//   //   return false;
+//   // }
+//   // var res = n < 1 ? false : (n & (n - 1)) == 0 ? true : false;
+//   // console.log(res);
+
+// //   while (n > 1) {
+// //     n /= 2;
+// //   }
+
+//   console.log((n /= 2));
+//   // console.log(n === 1);
+// };
+// let n = 10;
+// isPowerOfTwo(n);
+
+//fibonacci number
+// var fib = function (n) {
+//   if (n == 0 || n == 1) {
+//     return n;
+//   } else {
+//     console.log(n - 1);
+//     console.log(n - 2);
+//     return fib(n - 1) + fib(n - 2);
+//   }
+// };
+
+// let n = 100;
+
+// fib(n);
+
+var addStrings = function (num1, num2) {
+  let i = num1.length - 1;
+  let j = num2.length - 1;
+  let carry = 0;
+  let sum = "";
+
+  for (; i >= 0 || j >= 0 || carry > 0; i--, j--) {
+    const digit1 = i < 0 ? 0 : num1.charAt(i) - "0";
+    const digit2 = j < 0 ? 0 : num2.charAt(j) - "0";
+    const digitsSum = digit1 + digit2 + carry;
+    sum = `${digitsSum % 10}${sum}`;
+    carry = Math.floor(digitsSum / 10);
+  }
+  return sum;
+};
+
+let num1 = "19",
+  num2 = "1239";
+
+addStrings(num1, num2);
