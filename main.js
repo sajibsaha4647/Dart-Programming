@@ -527,3 +527,214 @@ function ListNode(val, next) {
 //   num2 = "1239";
 
 // addStrings(num1, num2);
+
+// var longestPalindrome = function (s) {
+//   const obj = {};
+//   let sum = 0;
+
+//   for (let i = 0; i < s.length; i++) {
+//     const ch = s[i];
+
+//     if (!obj[ch]) {
+//       obj[ch] = 1;
+//     } else {
+//       obj[ch] = 0;
+//       sum += 2;
+//     }
+//   }
+
+//   if (sum < s.length) {
+//     return sum + 1;
+//   } else {
+//     return sum;
+//   }
+// };
+
+// let a;
+// console.log(!a); //true and a=1 then its return false
+
+// var s = "abccccdd";
+// longestPalindrome(s);
+
+// var arrayPairSum = function (nums) {
+//   nums = nums.sort((a, b) => b - a);
+//   let output = 0;
+//   console.log(nums);
+//   for (let i = 1; i < nums.length; i += 2) {
+//     output += nums[i];
+//   }
+
+//   console.log(output);
+
+//   return output;
+// };
+
+// var nums = [6, 6, 5, 2, 2, 1];
+
+// arrayPairSum(nums);
+
+// var romanToInt = function (s) {
+//   var num = [];
+//   for (var i = 0; i < s.length; i++) {
+//     if (
+//       (s[i] == "I" &&
+//         (s[i + 1] == "V" ||
+//           s[i + 1] == "X" ||
+//           s[i + 1] == "L" ||
+//           s[i + 1] == "C" ||
+//           s[i + 1] == "D" ||
+//           s[i + 1] == "M")) ||
+//       (s[i] == "X" &&
+//         (s[i + 1] == "L" ||
+//           s[i + 1] == "C" ||
+//           s[i + 1] == "D" ||
+//           s[i + 1] == "M")) ||
+//       (s[i] == "C" && (s[i + 1] == "D" || s[i + 1] == "M"))
+//     ) {
+//       var newitem = s[i] + s[i + 1];
+//       i = i + 1;
+//     } else {
+//       newitem = s[i];
+//     }
+//     num.push(newitem);
+//     console.log(num);
+//   }
+
+//   var numbers = 0;
+//   for (i = 0; i < num.length; i++) {
+//     var newnumber;
+//     switch (num[i]) {
+//       case "I":
+//         newnumber = 1;
+//         break;
+//       case "V":
+//         newnumber = 5;
+//         break;
+//       case "X":
+//         newnumber = 10;
+//         break;
+//       case "L":
+//         newnumber = 50;
+//         break;
+//       case "C":
+//         newnumber = 100;
+//         break;
+//       case "D":
+//         newnumber = 500;
+//         break;
+//       case "M":
+//         newnumber = 1000;
+//         break;
+//       case "IV":
+//         newnumber = 4;
+//         break;
+//       case "IX":
+//         newnumber = 9;
+//         break;
+//       case "XL":
+//         newnumber = 40;
+//         break;
+//       case "XC":
+//         newnumber = 90;
+//         break;
+//       case "CD":
+//         newnumber = 400;
+//         break;
+//       case "CM":
+//         newnumber = 900;
+//         break;
+//       default:
+//         newnumber = 0;
+//     }
+//     numbers = numbers + newnumber;
+//   }
+
+//   console.log(numbers);
+
+//   return numbers;
+// };
+
+// var s = "XCLM";
+// romanToInt(s);
+
+// var longestCommonPrefix = function (strs) {
+//   let str = strs.sort();
+//   console.log(str);
+//   let first = str[0];
+//   let last = str[str.length - 1];
+
+//   let result = "";
+//   for (let i = 0; i < first.length; i++) {
+//     if (first[i] === last[i]) {
+//       result += first[i];
+//     } else {
+//       break;
+//     }
+//   }
+//   console.log(result);
+//   return result;
+// };
+
+// var strs = ["aflight", "xblow", "ycull", "zfdoll", "felower"];
+// longestCommonPrefix(strs);
+
+// var intToRoman = function (num) {
+//   let roman = {
+//       M: 1000,
+//       CM: 900,
+//       D: 500,
+//       CD: 400,
+//       C: 100,
+//       XC: 90,
+//       L: 50,
+//       XL: 40,
+//       X: 10,
+//       IX: 9,
+//       V: 5,
+//       IV: 4,
+//       I: 1,
+//     },
+//     romanNum = "";
+
+//   for (let i in roman) {
+//     while (num >= roman[i]) {
+//       romanNum += i;
+//       num -= roman[i];
+//     }
+//   }
+//   return romanNum;
+// };
+
+// var num = 10930;
+// intToRoman(num);
+
+var findShortestSubArray = function (nums) {
+  let map = {};
+  let max = 0;
+  for (let i = 0; i < nums.length; i++) {
+    map[nums[i]] = map[nums[i]] ? map[nums[i]] + 1 : 1;
+    max = Math.max(map[nums[i]], max);
+  }
+  console.log(map);
+  let result = Infinity;
+  for (let i in map) {
+    if (
+      map[i] == max &&
+      nums.indexOf(+i) !== -1 &&
+      nums.lastIndexOf(+i) != -1
+    ) {
+      console.log(nums.indexOf(+i));
+      console.log(nums.lastIndexOf(+i));
+      result = Math.min(nums.lastIndexOf(+i) - nums.indexOf(+i) + 1, result);
+    }
+
+    // console.log(max == result);
+
+    if (result == max) break;
+  }
+  console.log(result, "result");
+  return result;
+};
+
+var nums = [2, 3, 1, 2, 1, 2, 9, 0, 9, 8, 9, 8, 9];
+findShortestSubArray(nums);
