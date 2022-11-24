@@ -708,33 +708,85 @@ function ListNode(val, next) {
 // var num = 10930;
 // intToRoman(num);
 
-var findShortestSubArray = function (nums) {
-  let map = {};
-  let max = 0;
-  for (let i = 0; i < nums.length; i++) {
-    map[nums[i]] = map[nums[i]] ? map[nums[i]] + 1 : 1;
-    max = Math.max(map[nums[i]], max);
-  }
-  console.log(map);
-  let result = Infinity;
-  for (let i in map) {
-    if (
-      map[i] == max &&
-      nums.indexOf(+i) !== -1 &&
-      nums.lastIndexOf(+i) != -1
-    ) {
-      console.log(nums.indexOf(+i));
-      console.log(nums.lastIndexOf(+i));
-      result = Math.min(nums.lastIndexOf(+i) - nums.indexOf(+i) + 1, result);
+// var findShortestSubArray = function (nums) {
+//   let map = {};
+//   let max = 0;
+//   for (let i = 0; i < nums.length; i++) {
+//     map[nums[i]] = map[nums[i]] ? map[nums[i]] + 1 : 1;
+//     max = Math.max(map[nums[i]], max);
+//   }
+//   let result = Infinity;
+
+//   for (let i in map) {
+//     if (
+//       map[i] == max &&
+//       nums.indexOf(+i) !== -1 &&
+//       nums.lastIndexOf(+i) != -1
+//     ) {
+//       result = Math.min(nums.lastIndexOf(+i) - nums.indexOf(+i) + 1, result);
+//     }
+
+//     if (result == max) break;
+//   }
+
+//   return result;
+// };
+
+// var nums = [2, 3, 1, 2, 1, 2, 9, 0, 9, 8, 9, 8, 9];
+// // var nums = [1, 2, 3, 1, 2, 1, 2];
+// findShortestSubArray(nums);
+
+//search word
+var exist = function (board, word) {
+  let result = false;
+  var check = function (r, c, i) {
+    if (!result) {
+      if (r < 0 || c < 0 || r >= board.length || c >= board[0].length) return; // out of boundary
+      if (board[r][c] != word[i]) return; // wrong character
+      if (i == word.length - 1) {
+        // got to the end means we found a correct path
+        console.log("here true");
+        result = true;
+        return;
+      }
+
+      // board[r][c] = null; // mark our path so we dont go back and forth
+
+      // try all directions
+
+      // ["A", "B", "C", "C"],
+      // ["S", "F", "C", "E"],
+      // ["A", "D", "E", "D"],
+
+      // console.log(r + 1, "r+1");
+
+      check(r + 1, c, i + 1);
+      console.log(board[r], "r+1");
+      // check(r - 1, c, i + 1);
+      // check(r, c + 1, i + 1);
+      // check(r, c - 1, i + 1);
+
+      // board[r][c] = word[i]; // reset our board , very important
     }
+  };
 
-    // console.log(max == result);
-
-    if (result == max) break;
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[0].length; j++) {
+      if (board[i][j] == word[0]) {
+        check(i, j, 0); //passing row collumn and index
+        if (result) return result;
+      }
+    }
   }
-  console.log(result, "result");
+
   return result;
 };
 
-var nums = [2, 3, 1, 2, 1, 2, 9, 0, 9, 8, 9, 8, 9];
-findShortestSubArray(nums);
+var board = [
+    ["A", "B", "C", "C"],
+    ["S", "F", "C", "E"],
+    ["N", "D", "E", "D"],
+  ],
+  word = "ABCCED";
+
+console.log(exist(board, word));
