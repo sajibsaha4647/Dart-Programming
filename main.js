@@ -737,56 +737,67 @@ function ListNode(val, next) {
 // findShortestSubArray(nums);
 
 //search word
-var exist = function (board, word) {
-  let result = false;
-  var check = function (r, c, i) {
-    if (!result) {
-      if (r < 0 || c < 0 || r >= board.length || c >= board[0].length) return; // out of boundary
-      if (board[r][c] != word[i]) return; // wrong character
-      if (i == word.length - 1) {
-        // got to the end means we found a correct path
-        console.log("here true");
-        result = true;
-        return;
-      }
+// var exist = function (board, word) {
+//   let result = false;
+//   var check = function (r, c, i) {
+//     if (!result) {
+//       if (r < 0 || c < 0 || r >= board.length || c >= board[0].length) return; // out of boundary
+//       if (board[r][c] != word[i]) return; // wrong character
+//       if (i == word.length - 1) {
+//         // got to the end means we found a correct path
+//         console.log("here true");
+//         result = true;
+//         return;
+//       }
 
-      // board[r][c] = null; // mark our path so we dont go back and forth
+//       board[r][c] = null; // mark our path so we dont go back and forth
 
-      // try all directions
+//       check(r + 1, c, i + 1);
+//       check(r - 1, c, i + 1);
+//       check(r, c + 1, i + 1);
+//       check(r, c - 1, i + 1);
 
-      // ["A", "B", "C", "C"],
-      // ["S", "F", "C", "E"],
-      // ["A", "D", "E", "D"],
+//       board[r][c] = word[i]; // reset our board , very important
+//     }
+//   };
 
-      // console.log(r + 1, "r+1");
+//   for (let i = 0; i < board.length; i++) {
+//     for (let j = 0; j < board[0].length; j++) {
+//       if (board[i][j] == word[0]) {
+//         check(i, j, 0); //passing row collumn and index
+//         if (result) return result;
+//       }
+//     }
+//   }
 
-      check(r + 1, c, i + 1);
-      console.log(board[r], "r+1");
-      // check(r - 1, c, i + 1);
-      // check(r, c + 1, i + 1);
-      // check(r, c - 1, i + 1);
+//   return result;
+// };
 
-      // board[r][c] = word[i]; // reset our board , very important
-    }
-  };
+// var board = [
+//     ["A", "B", "C", "C"],
+//     ["S", "F", "C", "E"],
+//     ["N", "D", "E", "D"],
+//   ],
+//   word = "ABCCED";
 
-  for (let i = 0; i < board.length; i++) {
-    for (let j = 0; j < board[0].length; j++) {
-      if (board[i][j] == word[0]) {
-        check(i, j, 0); //passing row collumn and index
-        if (result) return result;
-      }
-    }
-  }
+// console.log(exist(board, word));
 
-  return result;
-};
+// var dayOfYear = function (date) {
+//   console.log(new Date(date.slice(0, 5)));
+//   let res = (new Date(date) - new Date(date.slice(0, 4)) + 86400000) / 86400000;
+//   console.log(res);
+// };
 
-var board = [
-    ["A", "B", "C", "C"],
-    ["S", "F", "C", "E"],
-    ["N", "D", "E", "D"],
-  ],
-  word = "ABCCED";
+// dayOfYear("2019-02-09");
 
-console.log(exist(board, word));
+const findWords = (words) =>
+  words.filter((w) => {
+    const wArr = w.toLowerCase().split(``);
+    return (
+      wArr.every((c) => `qwertyuiop`.includes(c)) ||
+      wArr.every((c) => `asdfghjkl`.includes(c)) ||
+      wArr.every((c) => `zxcvbnm`.includes(c))
+    );
+  });
+
+console.log(findWords(["Hello", "Alaska", "Dad", "Peace"]));
