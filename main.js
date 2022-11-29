@@ -790,14 +790,69 @@ function ListNode(val, next) {
 
 // dayOfYear("2019-02-09");
 
-const findWords = (words) =>
-  words.filter((w) => {
-    const wArr = w.toLowerCase().split(``);
-    return (
-      wArr.every((c) => `qwertyuiop`.includes(c)) ||
-      wArr.every((c) => `asdfghjkl`.includes(c)) ||
-      wArr.every((c) => `zxcvbnm`.includes(c))
-    );
-  });
+// const findWords = (words) =>
+//   words.filter((w) => {
+//     const wArr = w.toLowerCase().split(``);
+//     return (
+//       wArr.every((c) => `qwertyuiop`.includes(c)) ||
+//       wArr.every((c) => `asdfghjkl`.includes(c)) ||
+//       wArr.every((c) => `zxcvbnm`.includes(c))
+//     );
+//   });
 
-console.log(findWords(["Hello", "Alaska", "Dad", "Peace"]));
+// console.log(findWords(["Hello", "Alaska", "Dad", "Peace"]));
+
+// var diStringMatch = function (s) {
+//   const output = [];
+//   let countI = 0;
+//   let countD = s.length;
+
+//   for (let i = 0; i < s.length; i++) {
+//     if (s[i] === "I") {
+//       output.push(countI);
+//       countI++;
+//     } else {
+//       output.push(countD);
+//       countD--;
+//     }
+//   }
+
+//   output.push(s[s.length - 1] === "I" ? countD : countI);
+
+//   return output;
+// };
+
+// diStringMatch("IDIDI");
+
+// var heightChecker = function (heights) {
+//   const sortedHeights = [...heights].sort((a, b) => a - b);
+
+//   let output = 0;
+
+//   for (let i = 0; i < heights.length; i++) {
+//     if (heights[i] !== sortedHeights[i]) output++;
+//   }
+//   return output;
+// };
+
+// heightChecker([5, 1, 2, 3, 4]);
+
+var validMountainArray = function (arr) {
+  let isIncreasing = false,
+    isDecreasing = false;
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] === arr[i + 1]) {
+      return false;
+    } else if (arr[i] < arr[i + 1]) {
+      isIncreasing = true;
+
+      if (isDecreasing) return false;
+    } else {
+      isDecreasing = true;
+      if (!isIncreasing) return false;
+    }
+  }
+
+  return isDecreasing && isIncreasing;
+};
+validMountainArray([0, 3, 2, 1]);
