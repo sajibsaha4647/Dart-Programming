@@ -855,4 +855,11 @@ var validMountainArray = function (arr) {
 
   return isDecreasing && isIncreasing;
 };
-validMountainArray([0, 3, 2, 1]);
+validMountainArray([0, 3, 2, 1, 9]);
+
+// test cases
+
+// 0<3 // true when increasing true
+// 3<2  //true when decreasing true
+// 2<1  //false  when decreasing true
+// 1<9 //true when increasing true
