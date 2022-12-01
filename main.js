@@ -837,25 +837,25 @@ function ListNode(val, next) {
 
 // heightChecker([5, 1, 2, 3, 4]);
 
-var validMountainArray = function (arr) {
-  let isIncreasing = false,
-    isDecreasing = false;
-  for (let i = 0; i < arr.length - 1; i++) {
-    if (arr[i] === arr[i + 1]) {
-      return false;
-    } else if (arr[i] < arr[i + 1]) {
-      isIncreasing = true;
+// var validMountainArray = function (arr) {
+//   let isIncreasing = false,
+//     isDecreasing = false;
+//   for (let i = 0; i < arr.length - 1; i++) {
+//     if (arr[i] === arr[i + 1]) {
+//       return false;
+//     } else if (arr[i] < arr[i + 1]) {
+//       isIncreasing = true;
 
-      if (isDecreasing) return false;
-    } else {
-      isDecreasing = true;
-      if (!isIncreasing) return false;
-    }
-  }
+//       if (isDecreasing) return false;
+//     } else {
+//       isDecreasing = true;
+//       if (!isIncreasing) return false;
+//     }
+//   }
 
-  return isDecreasing && isIncreasing;
-};
-validMountainArray([0, 3, 2, 1, 9]);
+//   return isDecreasing && isIncreasing;
+// };
+// validMountainArray([0, 3, 2, 1, 9]);
 
 // test cases
 
@@ -863,3 +863,109 @@ validMountainArray([0, 3, 2, 1, 9]);
 // 3<2  //true when decreasing true
 // 2<1  //false  when decreasing true
 // 1<9 //true when increasing true
+
+// var MyHashSet = function () {
+//   // Really you should just
+//   // Make your own object, but instead
+//   // we have attached ourself to the
+//   // `this` object which then becomes our hashmap.
+
+//   // What you should instead do is this:
+//   this.hash_map = {};
+//   // And then update our following functions
+// };
+
+// MyHashSet.prototype.add = function (key) {
+//   // Constant Time
+//   // Linear Space | To the size of the input key
+//   // You can access objects using array notation
+
+//   this[key] = null;
+// };
+
+// MyHashSet.prototype.remove = function (key) {
+//   // Constant Time
+//   // Constant Space
+//   // You can access objects using array notation
+//   // Here we use the delete keyword.
+
+//   delete this[key];
+// };
+
+// MyHashSet.prototype.contains = function (key) {
+//   // Constant Time
+//   // Constant Space
+//   // This just asks if the property exists
+
+//   return this.hasOwnProperty(key);
+// };
+
+// console.log(Math.sign(23));
+
+// var sortArrayByParityII = function (nums) {
+//   let res = [];
+//   nums = nums.sort();
+
+//   let odd = [];
+//   let even = [];
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[i] % 2 === 0) odd.push(nums[i]);
+//     else {
+//       even.push(nums[i]);
+//     }
+//   }
+//   for (let i = 0; i < nums.length; i++) {
+//     if (i % 2 === 0) res.push(odd.pop());
+//     else res.push(even.pop());
+//   }
+//   return res;
+// };
+
+// sortArrayByParityII([4, 2, 5, 7]);
+
+// var runningSum = function (nums) {
+//   let temp = 0,
+//     arrTemp = [];
+//   for (let i = 0; i < nums.length; i++) {
+//     temp += nums[i];
+//     arrTemp.push(temp);
+//   }
+
+//   return arrTemp;
+// };
+
+// var nums = [1, 2, 3, 4];
+// runningSum(nums);
+
+var canConstruct = function (ransomNote, magazine) {
+  if (ransomNote.length > magazine.length) {
+    return false;
+  }
+
+  // ransomNote = ransomNote.split("").sort().join("");
+  // magazine = magazine.split("").sort().join("");
+
+  for (let i = 0; i < ransomNote.length; i++) {
+    let chars = ransomNote.charAt(i);
+    let matchindex = magazine.indexOf(chars);
+    console.log(magazine[matchindex]);
+    console.log(matchindex);
+    if (matchindex === -1) {
+      return false;
+    }
+
+    magazine = magazine.replace(magazine[matchindex], "");
+
+    // magazine = magazine.substring(0, i) + magazine.substring(i + 1);
+
+    console.log(magazine);
+  }
+
+  return true;
+};
+
+var ransomNote = "sajib",
+  magazine = "sapjib";
+
+console.log(canConstruct(ransomNote, magazine));
+// efjbdfbdgfjhhaiigfhbaejahgfbbgbjagbddfgdiaigdadhcfcj
