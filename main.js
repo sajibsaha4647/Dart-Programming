@@ -937,35 +937,143 @@ function ListNode(val, next) {
 // var nums = [1, 2, 3, 4];
 // runningSum(nums);
 
-var canConstruct = function (ransomNote, magazine) {
-  if (ransomNote.length > magazine.length) {
-    return false;
-  }
+// var canConstruct = function (ransomNote, magazine) {
+//   if (ransomNote.length > magazine.length) {
+//     return false;
+//   }
 
-  // ransomNote = ransomNote.split("").sort().join("");
-  // magazine = magazine.split("").sort().join("");
+//   // ransomNote = ransomNote.split("").sort().join("");
+//   // magazine = magazine.split("").sort().join("");
 
-  for (let i = 0; i < ransomNote.length; i++) {
-    let chars = ransomNote.charAt(i);
-    let matchindex = magazine.indexOf(chars);
-    console.log(magazine[matchindex]);
-    console.log(matchindex);
-    if (matchindex === -1) {
-      return false;
-    }
+//   for (let i = 0; i < ransomNote.length; i++) {
+//     let chars = ransomNote.charAt(i);
+//     let matchindex = magazine.indexOf(chars);
+//     console.log(magazine[matchindex]);
+//     console.log(matchindex);
+//     if (matchindex === -1) {
+//       return false;
+//     }
 
-    magazine = magazine.replace(magazine[matchindex], "");
+//     magazine = magazine.replace(magazine[matchindex], "");
 
-    // magazine = magazine.substring(0, i) + magazine.substring(i + 1);
+//     // magazine = magazine.substring(0, i) + magazine.substring(i + 1);
 
-    console.log(magazine);
-  }
+//     console.log(magazine);
+//   }
 
-  return true;
-};
+//   return true;
+// };
 
-var ransomNote = "sajib",
-  magazine = "sapjib";
+// var ransomNote = "sajib",
+//   magazine = "sapjib";
 
-console.log(canConstruct(ransomNote, magazine));
+// console.log(canConstruct(ransomNote, magazine));
 // efjbdfbdgfjhhaiigfhbaejahgfbbgbjagbddfgdiaigdadhcfcj
+
+// var pivotInteger = function (n) {
+//   for (let i = 1; i <= n; i++) {
+//     const leftSum = Math.floor((i * (i + 1)) / 2);
+//     const rightSum =
+//       Math.floor((n * (n + 1)) / 2) - Math.floor(((i - 1) * i) / 2);
+//     // console.log(Math.floor((n * (n + 1)) / 2) - Math.floor(((i - 1) * i) / 2));
+//     if (leftSum === rightSum) {
+//       return i;
+//     }
+//   }
+
+//   return -1;
+// };
+
+// pivotInteger(8);
+
+// var rotate = function (matrix) {
+//   for (let i = 0; i < matrix.length; i++) {
+//     //collum =i and j =row
+//     for (let j = i; j < matrix[0].length; j++) {
+//       console.log(matrix[j][i]);
+//       // let temp = 0;
+//       // temp = matrix[i][j];
+//       // matrix[i][j] = matrix[j][i];
+//       // matrix[j][i] = temp;
+//     }
+//     // matrix[i].reverse();
+//   }
+
+//   console.log(matrix);
+// };
+
+// let matrix = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9],
+// ];
+
+// rotate(matrix);
+
+// var findDifference = function (nums1, nums2) {
+//   const set1 = new Set(nums1);
+//   const set2 = new Set(nums2);
+//   const numsArr1 = [];
+//   const numsArr2 = [];
+
+//   for (const num of nums1) {
+//     if (!set2.has(num)) {
+//       numsArr1.push(num);
+//     }
+//   }
+//   for (const num of nums2) {
+//     if (!set1.has(num)) numsArr2.push(num);
+//   }
+
+//   return [[...new Set(numsArr1)], [...new Set(numsArr2)]];
+// };
+
+// var nums1 = [1, 2, 3, 3],
+//   nums2 = [1, 1, 2, 2];
+
+// findDifference(nums1, nums2);
+
+
+// var intersection = function (nums1, nums2) {
+//   const set1 = new Set(nums1);
+//   const set2 = new Set(nums2);
+//   const numsArr1 = [];
+//   const numsArr2 = [];
+
+//   for (const num of nums1) {
+//     if (set2.has(num)) {
+//       numsArr1.push(num);
+//     }
+//   }
+//   for (const num of nums2) {
+//     if (set1.has(num)) numsArr1.push(num);
+//   }
+
+//   let result = [...new Set(numsArr1)];
+
+//   return result;
+
+//   // return [...new Set(numsArr1),...new Set(numsArr2)]];
+// };
+
+// var nums1 = [1, 2, 2, 1],
+//   nums2 = [2, 2];
+
+// intersection(nums1, nums2);
+
+// var uncommonFromSentences = function(A, B) {
+//   // concat A + B
+//   let arr = A.concat(' ', B).split(' ');
+
+//   let result = [];
+//   for(let i = 0; i < arr.length; i++){
+//     console.log(arr.lastIndexOf(arr[i]))
+//     console.log(arr.indexOf(arr[i]))
+//   if(arr.indexOf(arr[i]) == arr.lastIndexOf(arr[i])){
+//     result.push(arr[i]);
+//   }
+//   }
+//   return result;
+//   };
+// var s1 = "this apple is sweet green", s2 = "sajib this apple is sour this"
+// uncommonFromSentences(s1,s2)
