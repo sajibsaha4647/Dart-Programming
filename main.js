@@ -1077,3 +1077,20 @@ function ListNode(val, next) {
 //   };
 // var s1 = "this apple is sweet green", s2 = "sajib this apple is sour this"
 // uncommonFromSentences(s1,s2)
+
+// 8421=>0101 //5
+
+var countBits = function (num) {
+  var ret = [0];
+  for (var i = 1; i <= num; i++) {
+   
+    var c = i & (i - 1);
+    
+    ret.push(ret[c]+1);
+  }
+
+  return ret;
+  // console.log(ret)
+};
+
+countBits(5);
