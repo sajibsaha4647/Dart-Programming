@@ -1080,17 +1080,93 @@ function ListNode(val, next) {
 
 // 8421=>0101 //5
 
-var countBits = function (num) {
-  var ret = [0];
-  for (var i = 1; i <= num; i++) {
+// var countBits = function (num) {
+//   var ret = [0];
+//   for (var i = 1; i <= num; i++) {
    
-    var c = i & (i - 1);
+//     var c = i & (i - 1);
     
-    ret.push(ret[c]+1);
-  }
+//     ret.push(ret[c]+1);
+//   }
 
-  return ret;
-  // console.log(ret)
+//   return ret;
+//   // console.log(ret)
+// };
+
+// countBits(5);
+
+
+// var commonFactors = function (a, b) {
+//   let fac = Math.min(a, b);
+//   let res = 0;
+//   for (let i = 1; i <= fac; i++) {
+//     if (a % i === 0 && b % i === 0) {
+//       console.log(i);
+//       res++;
+//     }
+//   }
+//   console.log(res);
+//   return res;
+// };
+
+// commonFactors(12,3)
+
+
+
+
+// shortestCharAt = (s, c) => {
+//   let output = [];
+//   for (let i = 0; i < s.length; i++) {
+//     let distance = findDistance(i, s, c);
+//     output.push(distance);
+//   }
+//   return output;
+// };
+
+// findDistance = (i, s, c) => {
+//   if (s[i] === c) {
+//     return 0;
+//   }
+//   let j = 1;
+
+//   while (j >= 0 || j < s.length) {
+//     if (s[i - j] === c || s[i + j] === c) {
+//       return j;
+//     }
+//     j++;
+//   }
+// };
+
+
+
+// var s = "loveleetcode", c = "e"
+// shortestCharAt(s,c)
+
+
+// var checkDistances = function (s, distance) {
+//   let arr = Array(26).fill(0);
+
+//   for (let i = 0; i < s.length; i++) {
+//     if (
+//       arr[s.charCodeAt(i) - 97] != 0 &&
+//       i - arr[s.charCodeAt(i) - 97] != distance[s.charCodeAt(i) - 97]
+//     )
+//       return false;
+//     arr[s.charCodeAt(i) - 97] = i + 1;
+//   }
+//   return true;
+// };
+// var s = "abaccb",
+//   distance = [
+//     1, 3, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0,
+//   ];
+
+// checkDistances(s,distance)
+
+
+var hammingDistance = function (x, y) {
+  let res = (x ^ y).toString(2).split("0").join("").length;
 };
 
-countBits(5);
+hammingDistance(1,4)
