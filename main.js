@@ -1165,8 +1165,25 @@ function ListNode(val, next) {
 // checkDistances(s,distance)
 
 
-var hammingDistance = function (x, y) {
-  let res = (x ^ y).toString(2).split("0").join("").length;
-};
+// var hammingDistance = function (x, y) {
+//   let res = (x ^ y).toString(2).split("0").join("").length;
+// };
 
-hammingDistance(1,4)
+// hammingDistance(1,4)
+
+// var averageValue = function(nums) {
+//     let countavg = 0;
+//     let sum = 0
+    
+//     for(let i =0; i<nums.length;i++){
+//       if(nums[i]%2 == 0 && nums[i]%3 == 0){
+//           countavg++
+//           sum +=nums[i]
+//       }
+//     }
+
+//     return countavg == 0 ? 0: parseInt(sum/countavg);
+   
+// };
+// var nums = [1,3,6,10,12,15]
+// averageValue(nums)
