@@ -1187,3 +1187,28 @@ function ListNode(val, next) {
 // };
 // var nums = [1,3,6,10,12,15]
 // averageValue(nums)
+
+var climbStairs = function (n) {
+  // if (n === 1) return 1;
+  // if (n === 2) return 2;
+  // let afterOneStep = 2,
+  //   afterTwoSteps = 1,
+  //   current;
+  // for (let i = 2; i < n; i++) {
+  //   current = afterOneStep + afterTwoSteps;
+  //   afterTwoSteps = afterOneStep;
+  //   afterOneStep = current;
+  //   console.log(current);
+  // }
+
+  // return current;
+
+  // const memo = [1, 1, 2];
+  // for (let i = 3; i <= n; i++) {
+  //   memo[i] = memo[i - 1] + memo[i - 2];
+  // }
+
+  // return memo[n];
+};
+
+// climbStairs(6);
