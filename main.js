@@ -1231,3 +1231,18 @@ function ListNode(val, next) {
 
 
 // findSubarrays([1,2,1])
+
+// var canWinNim = function (n) {
+//   if (n === 1 || n === 2 || n === 3) {
+//     return true;
+//   } else if (n % 4 === 0) {
+//     console.log(false);
+//     return false;
+//   } else {
+//     console.log(true);
+//     return true;
+//   }
+// };
+
+// canWinNim(6);
+
